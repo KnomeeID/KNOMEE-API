@@ -40,7 +40,7 @@ describe('Environment', () => {
 
         it('should set the local as current environment', async () => {
             const env: Environment = new Environment(Environments.LOCAL);
-            env.setEnvironment('local');
+            env.setEnvironment(Environments.LOCAL);
             const environment = env.getCurrentEnvironment();
             expect(environment).toBeDefined();
             expect(environment).toBe(Environments.LOCAL);
@@ -72,7 +72,6 @@ describe('Environment', () => {
             process.env.NODE_ENV = ''
             process.env.PORT = ''
             const env: Environment = new Environment();
-            env.setEnvironment('');
             const environment = env.getCurrentEnvironment();
             expect(environment).toBeDefined();
             expect(environment).toBe(Environments.LOCAL);

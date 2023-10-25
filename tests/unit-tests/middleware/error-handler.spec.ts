@@ -1,7 +1,10 @@
 import 'jest';
-import express from 'express';
-import { NextFunction, Request, Response } from 'express';
-import addErrorHandler from '../../../src/middleware/error-handler';
+import express, {
+    NextFunction,
+    Request,
+    Response
+} from 'express';
+import addErrorHandler from '../../../src/middleware/error-handler.middleware';
 import IntegrationHelpers from '../../helpers/Integration-helpers';
 import { StatusCodes } from 'http-status-codes';
 

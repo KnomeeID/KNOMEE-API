@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../swagger.json';
 import registerRoutes from './routes';
-import addErrorHandler from './middleware/error-handler';
+import addErrorHandler from './middleware/error-handler.middleware';
 
 export default class App {
 	public express: express.Application;

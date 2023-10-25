@@ -4,6 +4,8 @@ import logger from '../../src/lib/logger';
 import { setGlobalEnvironment } from '../../src/global';
 import Environment from '../../src/environments/environment';
 import { Environments } from '../../src/environments/environment.constant';
+import { migrator } from '../../src/database/umzug';
+import db from '../../src/database';
 
 
 export default class IntegrationHelpers {
@@ -23,10 +25,13 @@ export default class IntegrationHelpers {
         return this.appInstance;
     }
 
-    public clearDatabase(): void {
-        logger.info('clear the database');
+    public static async clearDatabase(): Promise<void> {
+        await db.sync({force: true});
     }
 
+    public static async runDatabaseMigrations():Promise<void> {
+       await migrator.up();
+    }
 }
 
 
